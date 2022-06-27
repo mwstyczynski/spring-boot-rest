@@ -1,7 +1,9 @@
 package com.ownproject;
 
 import com.ownproject.model.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TaxCalculation {
 
 
@@ -19,5 +21,6 @@ public class TaxCalculation {
 
         return tax;
     }
+
 
 }
