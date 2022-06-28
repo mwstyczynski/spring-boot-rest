@@ -1,6 +1,6 @@
 package com.ownproject;
 
-import com.ownproject.model.User;
+import com.ownproject.model.Customer;
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,8 +38,8 @@ class TaxCalculationTest {
         assertThat(tax).isCloseTo(350.00, Percentage.withPercentage(5.00));
     }
 
-    private User setIncome(Double income) {
-        return new User("Adam", "Whatever", LocalDate.of(1990, Month.DECEMBER, 16), "Japan", income);
+    private Customer setIncome(Double income) {
+        return new Customer("Adam", "Whatever", LocalDate.of(1990, Month.DECEMBER, 16), "Japan", income);
     }
 
 }

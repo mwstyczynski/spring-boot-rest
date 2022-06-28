@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Customer {
 
     private String firstName;
     private String lastName;

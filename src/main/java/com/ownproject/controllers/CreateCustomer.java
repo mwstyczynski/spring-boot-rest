@@ -1,9 +1,8 @@
 package com.ownproject.controllers;
 
-import com.ownproject.model.User;
-import com.ownproject.model.request.CreateUserRequest;
-import com.ownproject.model.response.CreateUserResponse;
-import com.ownproject.services.UserService;
+import com.ownproject.model.request.CreateCustomerRequest;
+import com.ownproject.model.response.CreateCustomerResponse;
+import com.ownproject.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,15 +16,15 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @ResponseStatus(CREATED)
-public class CreateUser {
+public class CreateCustomer {
 
     @Autowired
-    UserService userService;
+    CustomerService customerService;
 
     @PostMapping(path = "/user", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public CreateUserResponse createUser(@RequestBody CreateUserRequest request) {
-        UUID id = userService.createUser(request);
-        return new CreateUserResponse(id, "New customer created");
+    public CreateCustomerResponse createCustomer(@RequestBody CreateCustomerRequest request) {
+        UUID id = customerService.createCustomer(request);
+        return new CreateCustomerResponse(id, "New customer created");
     }
 
 }

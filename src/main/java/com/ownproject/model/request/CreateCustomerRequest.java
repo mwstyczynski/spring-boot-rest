@@ -1,7 +1,7 @@
 package com.ownproject.model.request;
 
 import com.ownproject.model.enums.Actor;
-import com.ownproject.model.User;
+import com.ownproject.model.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateUserRequest {
+public class CreateCustomerRequest {
 
     private Actor actor;
-    private User user;
+    private Customer customer;
 
 }

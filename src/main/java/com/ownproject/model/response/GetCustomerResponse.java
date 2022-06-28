@@ -1,5 +1,6 @@
 package com.ownproject.model.response;
 
+import com.ownproject.model.Customer;
 import com.ownproject.model.enums.Threshold;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +12,10 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 
-public class ChangeIncomeResponse {
+public class GetCustomerResponse {
 
-    protected final UUID userId;
-    protected final String message;
-    protected final Double updatedTaxCalculation;
-    protected final Threshold updatedThreshold;
+    protected final Customer customer;
+    protected final Double calculatedTax;
+    protected final Threshold establishedThreshold;
 
 }

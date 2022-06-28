@@ -8,7 +8,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 
-public class CreateUserResponse {
+public class CreateCustomerResponse {
 
     protected final UUID userId;
     protected final String message;
