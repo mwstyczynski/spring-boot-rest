@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Calculations {
 
+    // [minor] Maybe to be set as part of Response Bodies
+
     private Double calculatedTax;
     private Threshold threshold;
 

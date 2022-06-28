@@ -29,6 +29,7 @@ public class ChangeIncome {
     @PutMapping(path = "/user", params = "id", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ChangeIncomeResponse changeIncome(@RequestParam UUID id, @RequestBody ChangeIncomeRequest request) {
         customerService.changeIncome(id, request);
+        
         return ChangeIncomeResponse.builder()
                 .userId(id)
                 .message("Customer's income is now set to: " + request.getNewIncomeValue() + "$ by " + request.getActor())
