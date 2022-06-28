@@ -2,6 +2,7 @@ package com.ownproject.controllers;
 
 import com.ownproject.TaxCalculation;
 import com.ownproject.model.Customer;
+import com.ownproject.model.enums.Threshold;
 import com.ownproject.model.response.GetCustomerResponse;
 import com.ownproject.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,14 @@ public class GetCustomer {
     @GetMapping(path = "/user", params = "id", produces = APPLICATION_JSON_VALUE)
     @ResponseBody()
     public GetCustomerResponse getCustomer(@RequestParam UUID id) {
+        Customer customer = customerService.getCustomer(id);
+        Double tax = taxCalculation.calculateTax(customer, 2022);
+        Threshold threshold = taxCalculation.establishThreshold(customer);
+
         return GetCustomerResponse.builder()
-                .customer(customerService.getCustomer(id))
-                .calculatedTax(taxCalculation.calculateTax(customerService.getCustomer(id), 2022))
-                .establishedThreshold(taxCalculation.establishThreshold(customerService.getCustomer(id)))
+                .customer(customer)
+                .calculatedTax(tax)
+                .establishedThreshold(threshold)
                 .build();
 
     }

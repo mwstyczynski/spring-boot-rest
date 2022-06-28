@@ -19,7 +19,7 @@ public class CustomerService {
     public UUID createCustomer(CreateCustomerRequest request) {
         UUID id = UUID.randomUUID();
         mapOfCustomers.put(id, request.getCustomer());
-        log.info("Tax calculation account was created by:" + request.getActor());
+        log.info("Tax calculation account was created by: " + request.getActor() + " and has id: " + id);
         return id;
     }
 

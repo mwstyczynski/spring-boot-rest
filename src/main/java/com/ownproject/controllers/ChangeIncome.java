@@ -1,6 +1,7 @@
 package com.ownproject.controllers;
 
 import com.ownproject.TaxCalculation;
+import com.ownproject.model.enums.Threshold;
 import com.ownproject.model.request.ChangeIncomeRequest;
 import com.ownproject.model.response.ChangeIncomeResponse;
 import com.ownproject.services.CustomerService;
@@ -29,12 +30,14 @@ public class ChangeIncome {
     @PutMapping(path = "/user", params = "id", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ChangeIncomeResponse changeIncome(@RequestParam UUID id, @RequestBody ChangeIncomeRequest request) {
         customerService.changeIncome(id, request);
-        
+        Double tax = taxCalculation.calculateTax(customerService.getCustomer(id), 2022);
+        Threshold threshold = taxCalculation.establishThreshold(customerService.getCustomer(id));
+
         return ChangeIncomeResponse.builder()
                 .userId(id)
                 .message("Customer's income is now set to: " + request.getNewIncomeValue() + "$ by " + request.getActor())
-                .updatedTaxCalculation(taxCalculation.calculateTax(customerService.getCustomer(id), 2022))
-                .updatedThreshold(taxCalculation.establishThreshold(customerService.getCustomer(id)))
+                .updatedTaxCalculation(tax)
+                .updatedThreshold(threshold)
                 .build();
     }
 

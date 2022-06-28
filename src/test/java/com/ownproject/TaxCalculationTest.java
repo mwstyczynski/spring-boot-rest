@@ -29,6 +29,7 @@ class TaxCalculationTest {
     TaxCalculation taxCalculation;
 
     // Spring Boot was added only for Educational purposes and to develop POST and GET endpoint in the future
+    // Without that it could have as well been set as new instance of TaxCalculation
     // TaxCalculation taxCalculation = new TaxCalculation();
 
     @DisplayName("Single test successful")
