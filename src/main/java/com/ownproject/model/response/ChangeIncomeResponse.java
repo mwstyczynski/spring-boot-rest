@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class ChangeIncomeResponse {
 
-    protected final UUID userId;
+    protected final UUID customerId;
     protected final String message;
     protected final Double updatedTaxCalculation;
     protected final Threshold updatedThreshold;

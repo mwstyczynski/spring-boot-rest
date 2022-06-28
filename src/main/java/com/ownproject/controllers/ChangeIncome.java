@@ -1,6 +1,6 @@
 package com.ownproject.controllers;
 
-import com.ownproject.TaxCalculation;
+import com.ownproject.services.TaxCalculation;
 import com.ownproject.model.enums.Threshold;
 import com.ownproject.model.request.ChangeIncomeRequest;
 import com.ownproject.model.response.ChangeIncomeResponse;
@@ -34,7 +34,7 @@ public class ChangeIncome {
         Threshold threshold = taxCalculation.establishThreshold(customerService.getCustomer(id));
 
         return ChangeIncomeResponse.builder()
-                .userId(id)
+                .customerId(id)
                 .message("Customer's income is now set to: " + request.getNewIncomeValue() + "$ by " + request.getActor())
                 .updatedTaxCalculation(tax)
                 .updatedThreshold(threshold)

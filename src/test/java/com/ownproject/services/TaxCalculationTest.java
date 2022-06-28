@@ -1,6 +1,8 @@
-package com.ownproject;
+package com.ownproject.services;
 
 import com.ownproject.model.Customer;
+import com.ownproject.services.TaxCalculation;
+import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +16,7 @@ import java.time.Month;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Slf4j
 @SpringBootTest
 class TaxCalculationTest {
 
@@ -32,11 +35,25 @@ class TaxCalculationTest {
     // Without that it could have as well been set as new instance of TaxCalculation
     // TaxCalculation taxCalculation = new TaxCalculation();
 
-    @DisplayName("Single test successful")
+    @DisplayName("First Threshold Calculation")
     @Test
-    void firstTest() {
+    void firstThreshold() {
         Double tax = taxCalculation.calculateTax(setIncome(2317.97), 2022);
-        assertThat(tax).isCloseTo(350.00, Percentage.withPercentage(5.00));
+        assertThat(tax).isCloseTo(350.00, Percentage.withPercentage(1.00));
+    }
+
+    @DisplayName("Second Threshold Calculation")
+    @Test
+    void secondThreshold() {
+        Double tax = taxCalculation.calculateTax(setIncome(23170.97), 2022);
+        assertThat(tax).isCloseTo(5790.00, Percentage.withPercentage(1.00));
+    }
+
+    @DisplayName("Third Threshold Calculation")
+    @Test
+    void thirdThreshold() {
+        Double tax = taxCalculation.calculateTax(setIncome(231700.97), 2022);
+        assertThat(tax).isCloseTo(74150.00, Percentage.withPercentage(1.00));
     }
 
     private Customer setIncome(Double income) {

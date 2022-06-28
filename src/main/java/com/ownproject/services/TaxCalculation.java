@@ -1,4 +1,4 @@
-package com.ownproject;
+package com.ownproject.services;
 
 import com.ownproject.model.Customer;
 import com.ownproject.model.enums.Threshold;

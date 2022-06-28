@@ -1,0 +1,13 @@
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "actor": "owner",
+  "customer": {
+    "firstName": "Aldous",
+    "lastName": "Huxley",
+    "dateOfBirth": "1894-06-26",
+    "countryOfResidence": "United Kingdom",
+    "incomeLastYear": 10000.00
+  }
+}
