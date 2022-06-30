@@ -28,7 +28,7 @@ public class CreateCustomer {
         UUID id = customerService.createCustomer(request);
         return new CreateCustomerResponse(id, "New customer created");
         // @TODO how to sent an Object as part of log message
-        // log.info("Following request was sent: ", request);
+        // log.info("Following request was sent: ${request}");
     }
 
 }
