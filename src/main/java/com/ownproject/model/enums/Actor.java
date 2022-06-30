@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public enum Actor {
 
-    accountant,
-    owner,
+    ACCOUNTANT,
+    OWNER,
     @JsonProperty("tax reporter")
-    taxReporter
+    TAX_REPORTER
 
 }
