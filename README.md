@@ -2,8 +2,8 @@
 
 The following repository contains my attempts to understand REST Endpoints declarations within Spring Boot applications.
 
-The idea is to be able to create user and to have tax calculation returned depending on income threshold within three
-values ranges
+The idea is to be able to create user and to have tax calculation returned depending on the taxing threshol, within three
+values ranges.
 
 ## Available Actions
 
