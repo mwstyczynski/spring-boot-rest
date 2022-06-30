@@ -22,3 +22,9 @@ GET on [http://localhost:8080/user?id=*****]() using `customerId`- will return `
 PUT on [http://localhost:8080/user?id=*****]() using `customerId`, with body declared in
 `ChangeIncome.http`- will return `customerId` and response `message` along with value of `updatedTaxCalculation` and
 `updatedThreshold`.
+
+## Tests
+
+Testing framework was created and can be found in
+the [Test Automation Framework](https://github.com/mwstyczynski/REST-Test-Automation) repository- tests will work only
+after application is running locally and endpoints are available.
