@@ -25,10 +25,9 @@ public class CreateCustomer {
 
     @PostMapping(path = "/user", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public CreateCustomerResponse createCustomer(@RequestBody CreateCustomerRequest request) {
+        log.info("Following request was sent: {}", request);
         UUID id = customerService.createCustomer(request);
         return new CreateCustomerResponse(id, "New customer created");
-        // @TODO how to sent an Object as part of log message
-        // log.info("Following request was sent: ${request}");
     }
 
 }
