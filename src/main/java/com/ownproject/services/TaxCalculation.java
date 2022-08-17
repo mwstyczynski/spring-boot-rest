@@ -1,19 +1,16 @@
 package com.ownproject.services;
 
-import com.ownproject.model.Customer;
+import com.ownproject.model.TaxCustomer;
 import com.ownproject.model.enums.Threshold;
 import org.springframework.stereotype.Component;
 
-import static com.ownproject.model.enums.Threshold.FIRST;
-import static com.ownproject.model.enums.Threshold.SECOND;
-import static com.ownproject.model.enums.Threshold.THIRD;
-import static com.ownproject.model.enums.Threshold.UNDEFINED;
+import static com.ownproject.model.enums.Threshold.*;
 
 @Component
 public class TaxCalculation {
 
-    public Double calculateTax(Customer customer, Integer year) {
-        Double income = customer.getIncomeLastYear();
+    public Double calculateTax(TaxCustomer taxCustomer, Integer year) {
+        Double income = taxCustomer.getIncomeLastYear();
         double tax = 0.00;
 
         if (income <= 10000.00) {
@@ -27,8 +24,8 @@ public class TaxCalculation {
         return tax;
     }
 
-    public Threshold establishThreshold(Customer customer) {
-        Double income = customer.getIncomeLastYear();
+    public Threshold establishThreshold(TaxCustomer taxCustomer) {
+        Double income = taxCustomer.getIncomeLastYear();
         Threshold threshold = UNDEFINED;
 
         if (income <= 10000.00) {

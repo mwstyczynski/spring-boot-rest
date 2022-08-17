@@ -30,8 +30,8 @@ public class ChangeIncome {
     @PutMapping(path = "/user", params = "id", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ChangeIncomeResponse changeIncome(@RequestParam UUID id, @RequestBody ChangeIncomeRequest request) {
         customerService.changeIncome(id, request);
-        Double tax = taxCalculation.calculateTax(customerService.getCustomer(id), 2022);
-        Threshold threshold = taxCalculation.establishThreshold(customerService.getCustomer(id));
+        Double tax = taxCalculation.calculateTax(customerService.getTaxCustomer(id), 2022);
+        Threshold threshold = taxCalculation.establishThreshold(customerService.getTaxCustomer(id));
 
         return ChangeIncomeResponse.builder()
                 .customerId(id)

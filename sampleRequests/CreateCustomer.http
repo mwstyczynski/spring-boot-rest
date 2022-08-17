@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "actor": "OWNER",
-  "customer": {
+  "taxCustomer": {
     "firstName": "Aldous",
     "lastName": "Huxley",
     "dateOfBirth": "1894-06-26",

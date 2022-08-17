@@ -1,6 +1,6 @@
 package com.ownproject.services;
 
-import com.ownproject.model.Customer;
+import com.ownproject.model.TaxCustomer;
 import com.ownproject.services.TaxCalculation;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.data.Percentage;
@@ -56,8 +56,8 @@ class TaxCalculationTest {
         assertThat(tax).isCloseTo(74150.00, Percentage.withPercentage(1.00));
     }
 
-    private Customer setIncome(Double income) {
-        return new Customer("Adam", "Whatever", LocalDate.of(1990, Month.DECEMBER, 16), "Japan", income);
+    private TaxCustomer setIncome(Double income) {
+        return new TaxCustomer("Adam", "Whatever", LocalDate.of(1990, Month.DECEMBER, 16), "Japan", income);
     }
 
 }
